@@ -4,7 +4,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Note
 
-This Project is still underconstruction.
+This Project is under reconstruction.
 
 ## Available Scripts
 
