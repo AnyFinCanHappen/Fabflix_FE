@@ -1,0 +1,7 @@
+{
+    "idmUrl":"http://0.0.0.0:1234/api",
+    "idmEndpoints":{
+        "login":"/idm/login",
+        "register":"/idm/register"
+    }
+}

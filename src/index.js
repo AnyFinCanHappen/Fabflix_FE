@@ -3,9 +3,13 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+//React Redux
 import {createStore} from "redux";
 import {Provider} from "react-redux";
 import globalState from "./reducers/globalReducer";
+
+//Bootstrap
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const store = createStore(
     globalState, 
