@@ -1,8 +1,10 @@
-import themeChanger from "./themeChanger";
+import themeReducer from "./themeReducer";
+import loggedReducer from "./loggedReducer";
 import {combineReducers} from "redux";
 
 const globalState = combineReducers({
-    isTheme: themeChanger
+    isTheme: themeReducer,
+    isLogged: loggedReducer
 });
 
 export default globalState;

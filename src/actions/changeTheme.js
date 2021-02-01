@@ -1,7 +1,6 @@
-const changeTheme = (isLight) =>{
+const changeTheme = () =>{
     return {
-        type: "CHANGE_THEME",
-        payload: !isLight
+        type: "CHANGE_THEME"
     }
 }
 export default changeTheme;
