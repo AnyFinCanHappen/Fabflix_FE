@@ -3,5 +3,9 @@
     "idmEndpoints":{
         "login":"/idm/login",
         "register":"/idm/register"
+    },
+    "moviesUrl":"http://0.0.0.0:5432/api",
+    "moviesEndpoints":{
+        "search": "/movies/search"
     }
 }

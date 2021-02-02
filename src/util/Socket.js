@@ -9,23 +9,23 @@ function initSocket(baseUrl){
     Axios.defaults.baseURL = baseUrl;
 }
 
-async function sendGETHTTP(url,path){
-    return await sendHTTPMethod(HTTPMETHOD.GET,url,path);
+async function sendGETHTTP(url,path,config){
+    return await sendHTTPMethod(HTTPMETHOD.GET,url,path,null, config);
 }
 
-async function sendPOSTHTTP(url,path,data){
-    return await sendHTTPMethod(HTTPMETHOD.POST,url,path,data);
+async function sendPOSTHTTP(url,path,data,config){
+    return await sendHTTPMethod(HTTPMETHOD.POST,url,path,data,config);
 }
 
-async function sendHTTPMethod(method, url, path, data){
+async function sendHTTPMethod(method, url, path, data, config){
     let response;
     initSocket(url);
     switch(method){
         case HTTPMETHOD.GET:
-            response = await Axios.get(path);
+            response = await Axios.get(path, config);
             break;
         case HTTPMETHOD.POST:
-            response = await Axios.post(path,data);
+            response = await Axios.post(path,data,config);
             break;
         default:
             response = {
