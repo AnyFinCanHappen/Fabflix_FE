@@ -6,9 +6,9 @@ function NavBar() {
         <>
             <Navbar className = "navbar-color">
                 <Navbar.Brand>
-                    <Nav.Link>Home</Nav.Link>
+                    <Nav.Link href = "/">Home</Nav.Link>
                 </Navbar.Brand>
-                <Nav.Link>Search</Nav.Link>
+                <Nav.Link href = "/search">Search</Nav.Link>
                 <Nav.Link href="/login">Login</Nav.Link>
             </Navbar>
         </>

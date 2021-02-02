@@ -13,10 +13,9 @@ function LoginPage() {
         const { name, value } = e.target;
         setState((prevState) => ({ ...prevState, [name]: value }));
     };
-
     useEffect(()=>{
         return false;
-    })
+    });
     const handleSubmit = (e) => {
         e.preventDefault();
         setLoading(true);
@@ -96,7 +95,7 @@ function LoginPage() {
                         </Button>
                     </div>
                 ) : (
-                    <div>
+                    <div style = {{marginTop:"20px"}}>
                         <Spinner animation="border"></Spinner>
                         <br></br>
                         Loading
