@@ -1,4 +1,4 @@
-import { Form, Col, Button } from "react-bootstrap";
+import { Form, Col, Button, Spinner } from "react-bootstrap";
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { NotificationManager } from "react-notifications";
@@ -7,6 +7,7 @@ function LoginPage() {
     const [state, setState] = useState({ email: "", password: "" });
     const [errorMessage, setErrorMessage] = useState("");
     const [isError, setIsError] = useState(false);
+    const [isLoading, setLoading] = useState(false);
     const history = useHistory();
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -15,6 +16,7 @@ function LoginPage() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        setLoading(true);
         const payload = {
             email: state.email,
             password: state.password,
@@ -31,14 +33,17 @@ function LoginPage() {
                 let { data } = error.response;
                 setIsError(true);
                 setErrorMessage(data.message);
+            })
+            .finally(() => {
+                setLoading(false);
             });
     };
     return (
         <>
             <Col xs={{ span: 8, offset: 2 }} sm={{ span: 4, offset: 4 }}>
-                <div>
-                    Register Page
-                    <Form onSubmit={handleSubmit}>
+                <div style={{ fontSize: "x-large" }}>Register Page</div>
+                {!isLoading ? (
+                    <Form onSubmit={handleSubmit} style={{ marginTop: "20px" }}>
                         <Form.Group controlId="email">
                             <Form.Label>Email</Form.Label>
                             <Form.Control
@@ -56,13 +61,19 @@ function LoginPage() {
                             ></Form.Control>
                         </Form.Group>
                         {isError ? (
-                            <div style={{ color: "red" }}>{errorMessage}</div>
+                            <div style={{ color: "red" }}>
+                                {"Error: " + errorMessage}
+                            </div>
                         ) : (
                             <br></br>
                         )}
-                        <Button type="submit">Register</Button>
+                        <div style={{ paddingTop: "10px" }}>
+                            <Button type="submit">Register</Button>
+                        </div>
                     </Form>
-                </div>
+                ) : (
+                    <Spinner animation="border">Loading</Spinner>
+                )}
             </Col>
         </>
     );
