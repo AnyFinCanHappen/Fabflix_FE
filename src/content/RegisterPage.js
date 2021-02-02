@@ -1,5 +1,5 @@
 import { Form, Col, Button, Spinner } from "react-bootstrap";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import { NotificationManager } from "react-notifications";
 import registerEndpoint from "../util/IdmApi/RegisterEndpoint";
@@ -13,7 +13,9 @@ function LoginPage() {
         const { name, value } = e.target;
         setState((prevState) => ({ ...prevState, [name]: value }));
     };
-
+    useEffect(()=>{
+        return false;
+    });
     const handleSubmit = (e) => {
         e.preventDefault();
         setLoading(true);
@@ -28,13 +30,16 @@ function LoginPage() {
                     NotificationManager.success("Registered Successfully");
                     history.push("/login");
                 }
+                else{
+                    setIsError(true);
+                    setErrorMessage(data.message);                    
+                }
+                setLoading(false);
             })
             .catch((error) => {
                 let { data } = error.response;
                 setIsError(true);
                 setErrorMessage(data.message);
-            })
-            .finally(() => {
                 setLoading(false);
             });
     };
@@ -72,7 +77,11 @@ function LoginPage() {
                         </div>
                     </Form>
                 ) : (
-                    <Spinner animation="border">Loading</Spinner>
+                    <div>
+                        <Spinner animation="border"></Spinner>
+                        Loading
+                        <br></br>
+                    </div>
                 )}
             </Col>
         </>

@@ -13,9 +13,11 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import Row from "react-bootstrap/Row";
 import NavBar from "./content/NavBar";
+import Col from "react-bootstrap/Col";
+import Container from "react-bootstrap/Container";
 
-import {NotificationContainer} from 'react-notifications';
-import 'react-notifications/lib/notifications.css';
+import { NotificationContainer } from "react-notifications";
+import "react-notifications/lib/notifications.css";
 
 import LoginPage from "./content/LoginPage";
 import RegisterPage from "./content/RegisterPage";
@@ -26,22 +28,26 @@ function App() {
     //const dispatch = useDispatch();
     return (
         <div>
-            <Row>
-                <NavBar></NavBar>
-                <NotificationContainer/>
-            </Row>
-            <Row className = "align-items-center">
-            <Router>
-                <Switch>
-                        <Route path="/login">
-                            <LoginPage></LoginPage>
-                        </Route>
-                        <Route path = "/register">
-                            <RegisterPage></RegisterPage>
-                        </Route>
-                </Switch>
-            </Router>
-            </Row>
+            <Container fluid = "true">
+                <Row>
+                    <Col>
+                        <NavBar></NavBar>
+                    </Col>
+                </Row>
+                <NotificationContainer />
+                <Row className="align-items-center" style = {{paddingTop: "5vh"}}>
+                    <Router>
+                        <Switch>
+                            <Route path="/login">
+                                <LoginPage></LoginPage>
+                            </Route>
+                            <Route path="/register">
+                                <RegisterPage></RegisterPage>
+                            </Route>
+                        </Switch>
+                    </Router>
+                </Row>
+            </Container>
         </div>
     );
 }

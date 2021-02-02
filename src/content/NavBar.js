@@ -1,9 +1,10 @@
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
+import "../css/nav_bar.css"
 function NavBar() {
     return (
         <>
-            <Navbar>
+            <Navbar className = "navbar-color">
                 <Navbar.Brand>
                     <Nav.Link>Home</Nav.Link>
                 </Navbar.Brand>
