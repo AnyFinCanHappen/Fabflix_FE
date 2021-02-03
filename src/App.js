@@ -21,6 +21,7 @@ import "react-notifications/lib/notifications.css";
 
 import LoginPage from "./content/LoginPage";
 import RegisterPage from "./content/RegisterPage";
+import SearchPage from "./content/Search/SearchPage";
 
 function App() {
     //const isTheme = useSelector(state => state.isTheme);
@@ -43,6 +44,9 @@ function App() {
                             </Route>
                             <Route path="/register">
                                 <RegisterPage></RegisterPage>
+                            </Route>
+                            <Route path = "/search">
+                                <SearchPage></SearchPage>
                             </Route>
                         </Switch>
                     </Router>
