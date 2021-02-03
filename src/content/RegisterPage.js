@@ -76,17 +76,13 @@ function LoginPage() {
                                 <br></br>
                             )}
                             <div style={{ paddingTop: "10px" }}>
-                                <Button type="submit">Register</Button>
+                                <Button type="submit">Submit</Button>
                             </div>
                         </Form>
                         <br></br>
-                        <Button
-                            onClick={() => {
-                                history.push("/login");
-                            }}
-                        >
+                        <a href = "/login">
                             Login Page
-                        </Button>
+                        </a>
                     </div>
                 ) : (
                     <div style = {{marginTop:"20px"}}>

@@ -2,6 +2,8 @@ import { Form, Col, Button, Spinner } from "react-bootstrap";
 import { NotificationManager } from "react-notifications";
 import { useState , useEffect} from "react";
 import { useHistory } from "react-router-dom";
+import {useDispatch} from "react-redux";
+import changeLogged from "../actions/changeLogged";
 import loginEndpoint from "../util/IdmApi/LoginEndpoint";
 function LoginPage() {
     const [state, setState] = useState({ email: "", password: "" });
@@ -9,6 +11,7 @@ function LoginPage() {
     const [errorMessage, setErrorMessage] = useState("");
     const [isLoading, setLoading] = useState(false);
     const history = useHistory();
+    const dispatch = useDispatch();
     const handleChange = (e) => {
         const { name, value } = e.target;
         setState((prevState) => ({ ...prevState, [name]: value }));
@@ -30,6 +33,7 @@ function LoginPage() {
                 if (data.resultCode === 120) {
                     localStorage.setItem('email',state.email);
                     localStorage.setItem('session_id', data.session_id);
+                    dispatch(changeLogged(true));
                     NotificationManager.success("Logged in successfully.");
                     history.push("/");
                 } else {
@@ -82,17 +86,13 @@ function LoginPage() {
                                 <br></br>
                             )}
                             <div style={{ paddingTop: "10px" }}>
-                                <Button type="submit">Login</Button>
+                                <Button type="submit">Submit</Button>
                             </div>
                         </Form>
                         <br></br>
-                        <Button
-                            onClick={() => {
-                                history.push("/register");
-                            }}
-                        >
+                        <a href = "/register">
                             Sign Up
-                        </Button>
+                        </a>
                     </div>
                 ) : (
                     <div style = {{marginTop:"20px"}}>
