@@ -28,7 +28,7 @@ function App() {
     //const isLogged = useSelector(state => state.isLogged);
     //const dispatch = useDispatch();
     return (
-        <div>
+        <div style = {{overflowX:"hidden"}}>
             <Container fluid = "true">
                 <Row>
                     <Col>
@@ -36,7 +36,7 @@ function App() {
                     </Col>
                 </Row>
                 <NotificationContainer />
-                <Row className="align-items-center" style = {{paddingTop: "5vh"}}>
+                <Row className="align-items-center" style = {{marginTop: "5vh"}}>
                     <Router>
                         <Switch>
                             <Route path="/login">
