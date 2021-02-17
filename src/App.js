@@ -28,7 +28,7 @@ function App() {
     //const isLogged = useSelector(state => state.isLogged);
     //const dispatch = useDispatch();
     return (
-        <div style = {{overflowX:"hidden"}}>
+        <div >
             <Container fluid = "true">
                 <Row>
                     <Col>
