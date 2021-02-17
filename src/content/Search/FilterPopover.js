@@ -37,7 +37,7 @@ function FilterPopover(props) {
                     </Popover>
                 }
             >
-                <Button>Filter</Button>
+                <Button>F</Button>
             </OverlayTrigger>
         </>
     );
