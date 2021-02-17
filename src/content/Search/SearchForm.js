@@ -17,7 +17,7 @@ function SearchFrom() {
         director: "",
         genre: "",
         hidden: "false",
-        limit: 10,
+        limit: "10",
         offset: 0,
         orderby: "year",
         direction: "desc",
